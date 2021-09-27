@@ -1,6 +1,6 @@
-const Seat = require('./seat');
-const { ROWS, STATUS, TICKET } = require('./utils/constants');
-const { BookedSeatError, SeatNotFoundError } = require('./utils/errors');
+const Seat = require('../Seat/seat');
+const { ROWS, STATUS, TICKET } = require('../utils/constants');
+const { BookedSeatError, SeatNotFoundError } = require('../utils/errors');
 
 class Theater {
   _seats;

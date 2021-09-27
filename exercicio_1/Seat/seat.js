@@ -1,4 +1,4 @@
-const { ROWS, STATUS } = require('./utils/constants');
+const { ROWS, STATUS } = require('../utils/constants');
 
 class Seat {
   _status;

@@ -1,4 +1,4 @@
-const Theater = require('./theater');
+const Theater = require('./Theater/theater');
 const { BookedSeatError, SeatNotFoundError } = require('./utils/errors');
 
 const readline = require('readline');
