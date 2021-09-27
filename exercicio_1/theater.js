@@ -1,5 +1,6 @@
 const Seat = require('./seat');
 const { ROWS, STATUS } = require('./utils/constants');
+const { BookedSeatError, SeatNotFoundError } = require('./utils/errors');
 
 class Theater {
   _seats;
@@ -38,14 +39,14 @@ class Theater {
     if (place.getStatus() === STATUS.AVAILABLE) {
       place.book();            
     } else {
-      console.log('\nLugar não disponível. Tente novamente\n');     
+      throw new BookedSeatError('A poltrona escolhida não está disponível. Tente novamente.');
     }
   }
   confirmBooking(seat) {
     const { row, seatNumber } = this._getSeat(seat);
     const place = this._seats[row][seatNumber];
     if (place.getStatus() !== STATUS.BOOKED) {
-      console.log('Reserva não encontrada. Tente novamente\n');      
+      throw new SeatNotFoundError('Reserva não encontrada. Tente novamente.');      
     } else {
       place.confirm();      
     }    
