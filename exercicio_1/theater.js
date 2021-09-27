@@ -10,6 +10,15 @@ class Theater {
       }
     }
   }
+  showAvailableSeats() {
+    const availableSeats = []
+    this._seats.forEach(row => row.forEach(seat => {
+      if (seat.getStatus() === 'L') {
+        availableSeats.push(seat.getPosition());
+      }
+    }))
+    return availableSeats;
+  }
 }
 
 module.exports = Theater;

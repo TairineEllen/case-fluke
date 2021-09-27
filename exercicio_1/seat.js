@@ -1,9 +1,11 @@
+const { ROWS } = require('./utils/constants');
+
 class Seat {
   _status;
   _position;
   constructor(x,y) {
     this._status = 'L';
-    this._position = [x, y]
+    this._position = `${ROWS[x]}${y + 1}`;
   }
   getStatus() {
     return this._status;
