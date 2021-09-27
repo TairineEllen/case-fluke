@@ -13,6 +13,9 @@ class Seat {
   getPosition() {
     return this._position;
   }
+  book() {
+    this._status = 'R';
+  }
 }
 
 module.exports = Seat;

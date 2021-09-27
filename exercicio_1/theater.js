@@ -1,4 +1,5 @@
 const Seat = require('./seat');
+const { ROWS } = require('./utils/constants');
 
 class Theater {
   _seats;
@@ -19,7 +20,28 @@ class Theater {
     }))
     return availableSeats;
   }
-}
+  _getSeat(seat) {
+    let rowLetter = seat[0].toUpperCase();
+    let seatNumber = seat.slice(1) - 1;
+    let row;
+    for (let key in ROWS) {
+      if (ROWS[key] === rowLetter) {
+        row = Number(key);
+        break;
+      }
+    }
+    return { row, seatNumber };
+  }
+  bookSeat(seat) {
+    const { row, seatNumber } = this._getSeat(seat);
+    const place = this._seats[row][seatNumber];
+    if (place.getStatus() === 'L') {
+      place.book();      
+    } else {
+      console.log('\nLugar não disponível. Tente novamente\n');     
+    }
+  }
+} 
 
 module.exports = Theater;
 
