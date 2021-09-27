@@ -50,6 +50,15 @@ class Theater {
       place.confirm();      
     }    
   }
+  removeBooking(seat) {
+    const { row, seatNumber } = this._getSeat(seat);
+    const place = this._seats[row][seatNumber];
+    if (place.getStatus() !== 'L') {
+      place.remove();      
+    } else {
+      console.log('Reserva não encontrada. Tente novamente\n') ;  
+    }
+  }
 } 
 
 module.exports = Theater;

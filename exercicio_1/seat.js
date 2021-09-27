@@ -19,6 +19,9 @@ class Seat {
   confirm() {
     this._status = 'C';
   }
+  remove() {
+    this._status = 'L';
+  }
 }
 
 module.exports = Seat;
