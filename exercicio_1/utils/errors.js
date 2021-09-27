@@ -4,9 +4,10 @@ class BookedSeatError extends Error {
   }
 }
 
-class SeatNotFoundError extends Error{
+class SeatNotFoundError extends Error {
   constructor(message) {
     super(message);
   }
 }
+
 module.exports = {BookedSeatError, SeatNotFoundError};

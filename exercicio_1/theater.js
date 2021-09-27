@@ -46,7 +46,7 @@ class Theater {
     const { row, seatNumber } = this._getSeat(seat);
     const place = this._seats[row][seatNumber];
     if (place.getStatus() !== STATUS.BOOKED) {
-      throw new SeatNotFoundError('Reserva não encontrada. Tente novamente.');      
+      throw new SeatNotFoundError('\nReserva não encontrada. Tente novamente.\n');      
     } else {
       place.confirm();      
     }    
@@ -57,7 +57,7 @@ class Theater {
     if (place.getStatus() !== STATUS.AVAILABLE) {
       place.remove();      
     } else {
-      console.log('Reserva não encontrada. Tente novamente\n') ;  
+      throw new SeatNotFoundError('\nReserva não encontrada. Tente novamente.\n');
     }
   }
   showSeatMap() {
@@ -81,5 +81,3 @@ class Theater {
 } 
 
 module.exports = Theater;
-
-
