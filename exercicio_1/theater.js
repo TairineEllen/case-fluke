@@ -63,6 +63,15 @@ class Theater {
     const seats = this._seats.map(row => row.map(seat => seat.getStatus()));
     console.table(seats);
   }
+  showTotal(status) {
+    let total = 0;
+    this._seats.forEach(row => row.forEach(seat => {
+      if (seat.getStatus() === status) {
+        total++;
+      }
+    }));
+    return total;
+  }
 } 
 
 module.exports = Theater;
