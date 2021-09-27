@@ -9,6 +9,12 @@ const ROWS = {
   7: 'H',
   8: 'I',
   9: 'J'
-}
+};
 
-module.exports = { ROWS };
+const STATUS = {
+  'AVAILABLE': 'L',
+  'BOOKED': 'R',
+  'CONFIRMED': 'C'
+};
+
+module.exports = { ROWS, STATUS };

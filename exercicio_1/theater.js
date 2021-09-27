@@ -1,5 +1,5 @@
 const Seat = require('./seat');
-const { ROWS } = require('./utils/constants');
+const { ROWS, STATUS } = require('./utils/constants');
 
 class Theater {
   _seats;
@@ -14,7 +14,7 @@ class Theater {
   showAvailableSeats() {
     const availableSeats = []
     this._seats.forEach(row => row.forEach(seat => {
-      if (seat.getStatus() === 'L') {
+      if (seat.getStatus() === STATUS.AVAILABLE) {
         availableSeats.push(seat.getPosition());
       }
     }))
@@ -35,7 +35,7 @@ class Theater {
   bookSeat(seat) {
     const { row, seatNumber } = this._getSeat(seat);
     const place = this._seats[row][seatNumber];
-    if (place.getStatus() === 'L') {
+    if (place.getStatus() === STATUS.AVAILABLE) {
       place.book();            
     } else {
       console.log('\nLugar não disponível. Tente novamente\n');     
@@ -44,7 +44,7 @@ class Theater {
   confirmBooking(seat) {
     const { row, seatNumber } = this._getSeat(seat);
     const place = this._seats[row][seatNumber];
-    if (place.getStatus() !== 'R') {
+    if (place.getStatus() !== STATUS.BOOKED) {
       console.log('Reserva não encontrada. Tente novamente\n');      
     } else {
       place.confirm();      
@@ -53,7 +53,7 @@ class Theater {
   removeBooking(seat) {
     const { row, seatNumber } = this._getSeat(seat);
     const place = this._seats[row][seatNumber];
-    if (place.getStatus() !== 'L') {
+    if (place.getStatus() !== STATUS.AVAILABLE) {
       place.remove();      
     } else {
       console.log('Reserva não encontrada. Tente novamente\n') ;  

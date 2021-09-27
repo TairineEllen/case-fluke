@@ -1,10 +1,10 @@
-const { ROWS } = require('./utils/constants');
+const { ROWS, STATUS } = require('./utils/constants');
 
 class Seat {
   _status;
   _position;
   constructor(x,y) {
-    this._status = 'L';
+    this._status = STATUS.AVAILABLE;
     this._position = `${ROWS[x]}${y + 1}`;
   }
   getStatus() {
@@ -14,13 +14,13 @@ class Seat {
     return this._position;
   }
   book() {
-    this._status = 'R';
+    this._status = STATUS.BOOKED;
   }
   confirm() {
-    this._status = 'C';
+    this._status = STATUS.CONFIRMED;
   }
   remove() {
-    this._status = 'L';
+    this._status = STATUS.AVAILABLE;
   }
 }
 
