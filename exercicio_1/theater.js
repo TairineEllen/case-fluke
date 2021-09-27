@@ -59,6 +59,10 @@ class Theater {
       console.log('Reserva não encontrada. Tente novamente\n') ;  
     }
   }
+  showSeatMap() {
+    const seats = this._seats.map(row => row.map(seat => seat.getStatus()));
+    console.table(seats);
+  }
 } 
 
 module.exports = Theater;
