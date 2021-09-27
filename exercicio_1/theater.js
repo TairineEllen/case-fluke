@@ -72,6 +72,11 @@ class Theater {
     }));
     return total;
   }
+  calculateCollectedAmount() {
+    const confirmedSeats = this.showTotal('C');
+    const amount = confirmedSeats * 20;
+    return amount;
+  }
 } 
 
 module.exports = Theater;
