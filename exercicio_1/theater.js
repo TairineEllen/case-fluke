@@ -36,10 +36,19 @@ class Theater {
     const { row, seatNumber } = this._getSeat(seat);
     const place = this._seats[row][seatNumber];
     if (place.getStatus() === 'L') {
-      place.book();      
+      place.book();            
     } else {
       console.log('\nLugar não disponível. Tente novamente\n');     
     }
+  }
+  confirmBooking(seat) {
+    const { row, seatNumber } = this._getSeat(seat);
+    const place = this._seats[row][seatNumber];
+    if (place.getStatus() !== 'R') {
+      console.log('Reserva não encontrada. Tente novamente\n');      
+    } else {
+      place.confirm();      
+    }    
   }
 } 
 

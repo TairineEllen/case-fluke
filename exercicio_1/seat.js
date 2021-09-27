@@ -16,6 +16,9 @@ class Seat {
   book() {
     this._status = 'R';
   }
+  confirm() {
+    this._status = 'C';
+  }
 }
 
 module.exports = Seat;
