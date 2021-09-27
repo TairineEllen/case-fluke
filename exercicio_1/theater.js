@@ -1,5 +1,5 @@
 const Seat = require('./seat');
-const { ROWS, STATUS } = require('./utils/constants');
+const { ROWS, STATUS, TICKET } = require('./utils/constants');
 const { BookedSeatError, SeatNotFoundError } = require('./utils/errors');
 
 class Theater {
@@ -75,7 +75,7 @@ class Theater {
   }
   calculateCollectedAmount() {
     const confirmedSeats = this.showTotal('C');
-    const amount = confirmedSeats * 20;
+    const amount = confirmedSeats * TICKET.AMOUNT;
     return amount;
   }
 } 

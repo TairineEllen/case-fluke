@@ -17,4 +17,8 @@ const STATUS = {
   'CONFIRMED': 'C'
 };
 
-module.exports = { ROWS, STATUS };
+const TICKET = {
+  'AMOUNT': 20
+}
+
+module.exports = { ROWS, STATUS, TICKET };
