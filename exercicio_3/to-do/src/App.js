@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>To Do List</h1>
+      <Tabs>
+        <TabList>
+          <Tab>A fazer</Tab>
+          <Tab>Em progresso</Tab>
+          <Tab>Finalizado</Tab>
+        </TabList>
+        <TabPanel>
+          <h2>A fazer</h2>
+          <ul className="task-list">
+          </ul>
+        </TabPanel>
+        <TabPanel>
+          <h2>Em progresso</h2>
+          <ul className="task-list">
+          </ul>
+        </TabPanel>
+        <TabPanel>
+          <h2>Finalizado</h2>
+          <ul className="task-list">
+          </ul>
+        </TabPanel>
+      </Tabs>
+    </>
   );
 }
 
