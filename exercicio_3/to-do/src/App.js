@@ -44,6 +44,17 @@ function App() {
     });
   }
 
+  function finishTask(id) {
+    setTasks(tasks => {
+      const taskFinished = { ...tasks.find(task => task.id === id) };
+      taskFinished.status = 'done';
+      const allTasks = tasks.filter(task => task.id !== id);
+      const newTasks = [...allTasks, taskFinished];
+      saveInLocalStorage(newTasks);
+      return newTasks;
+    });
+  }
+
   function saveInLocalStorage(tasks) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
@@ -89,7 +100,7 @@ function App() {
                 <li className="item">{newTask.title}</li>
                 <div className="task-icon">
                   <i className="fa fa-trash-alt"></i>
-                  <i className="fas fa-check-square"></i>
+                  <i className="fas fa-check-square" onClick={() => finishTask(newTask.id)}></i>
                 </div>
               </div>
             )}
@@ -98,6 +109,15 @@ function App() {
         <TabPanel>
           <h2>Finalizado</h2>
           <ul className="task-list">
+            {tasks.filter(task => task.status === 'done').map(newTask =>
+              <div key={newTask.id} className="task">
+                <li className="item">{newTask.title}</li>
+                <div className="task-icon">
+                  <i className="fa fa-trash-alt"></i>
+
+                </div>
+              </div>
+            )}
           </ul>
         </TabPanel>
       </Tabs>
