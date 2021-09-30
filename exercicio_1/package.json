@@ -1,0 +1,16 @@
+{
+  "name": "exercicio_1",
+  "version": "1.0.0",
+  "description": "------------\r Crie uma aplicação, utilizando uma linguagem de programação de sua escolha, que gerencia as reservas, confirmações e remoção de reservas de poltronas de um teatro. O teatro possui 100 poltronas, divididas em 10 filas de 10 poltronas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.13"
+  }
+}

@@ -1,4 +1,4 @@
-const Theater = require('./Theater/theater');
+const Theater = require('./src/Theater/theater');
 const { BookedSeatError, SeatNotFoundError } = require('./utils/errors');
 
 const readline = require('readline');
@@ -82,7 +82,7 @@ function openManageMenu() {
           try {
             theater.confirmBooking(opt);
             console.log(`\nReserva da poltrona ${opt.toUpperCase()} confirmada com sucesso!\n`);
-            theater.showSeatMap();
+            console.table(theater.showSeatMap());
             openMainMenu();
           } catch (error) {
             error instanceof SeatNotFoundError
@@ -98,7 +98,7 @@ function openManageMenu() {
           try {
             theater.removeBooking(opt);
             console.log(`\nReserva da poltrona ${opt.toUpperCase()} retirada com sucesso!\n`);
-            theater.showSeatMap();
+            console.table(theater.showSeatMap());
             openManageMenu();
           } catch (error) {
             error instanceof SeatNotFoundError

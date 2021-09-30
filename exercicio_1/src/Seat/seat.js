@@ -1,9 +1,9 @@
-const { ROWS, STATUS } = require('../utils/constants');
+const { ROWS, STATUS } = require('../../utils/constants');
 
 class Seat {
   _status;
   _position;
-  constructor(x,y) {
+  constructor(x, y) {
     this._status = STATUS.AVAILABLE;
     this._position = `${ROWS[x]}${y + 1}`;
   }
