@@ -55,6 +55,15 @@ function App() {
     });
   }
 
+  function deleteTask(id) {
+    setTasks(tasks => {
+      const allTasks = tasks.filter(task => task.id !== id);
+      const newTasks = [...allTasks];
+      saveInLocalStorage(newTasks)
+      return newTasks;
+    });
+  }
+
   function saveInLocalStorage(tasks) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
@@ -85,7 +94,7 @@ function App() {
               <div key={newTask.id} className="task">
                 <li className="item" >{newTask.title}</li>
                 <div className="task-icon">
-                  <i className="fa fa-trash-alt"></i>
+                  <i className="fa fa-trash-alt" onClick={() => deleteTask(newTask.id)}></i>
                   <i className="fas fa-play" onClick={() => startTask(newTask.id)}></i>
                 </div>
               </div>
@@ -99,7 +108,7 @@ function App() {
               <div key={newTask.id} className="task">
                 <li className="item">{newTask.title}</li>
                 <div className="task-icon">
-                  <i className="fa fa-trash-alt"></i>
+                  <i className="fa fa-trash-alt" onClick={() => deleteTask(newTask.id)}></i>
                   <i className="fas fa-check-square" onClick={() => finishTask(newTask.id)}></i>
                 </div>
               </div>
@@ -113,7 +122,7 @@ function App() {
               <div key={newTask.id} className="task">
                 <li className="item">{newTask.title}</li>
                 <div className="task-icon">
-                  <i className="fa fa-trash-alt"></i>
+                  <i className="fa fa-trash-alt" onClick={() => deleteTask(newTask.id)}></i>
 
                 </div>
               </div>
