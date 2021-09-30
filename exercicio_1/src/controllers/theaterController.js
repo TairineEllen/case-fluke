@@ -11,6 +11,7 @@ class TheaterController {
     this.confirmBookedSeat = this.confirmBookedSeat.bind(this);
     this.removeBookedSeat = this.removeBookedSeat.bind(this);
     this.getTotalSeats = this.getTotalSeats.bind(this);
+    this.calculateAmount = this.calculateAmount.bind(this);
   }
 
   newBooking(req, res) {
@@ -45,6 +46,12 @@ class TheaterController {
       reservados: booked,
       confirmados: confirmed
     })
+  }
+  calculateAmount(req, res) {
+    const total = this._theater.calculateCollectedAmount();
+    res.status(200).send({
+      totalArrecadado: total
+    });
   }
 }
 
