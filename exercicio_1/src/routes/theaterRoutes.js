@@ -4,8 +4,7 @@ const TheaterController = require('../controllers/theaterController');
 
 const controller = new TheaterController();
 
+router.get('/livres', controller.showAvailable);
 router.post('/', controller.newBooking);
-
-
 
 module.exports = router;
