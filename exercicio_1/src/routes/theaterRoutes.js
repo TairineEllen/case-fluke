@@ -7,5 +7,6 @@ const controller = new TheaterController();
 router.get('/livres', controller.showAvailable);
 router.get('/mapa', controller.showMap);
 router.post('/', controller.newBooking);
+router.put('/', controller.confirmBookedSeat);
 
 module.exports = router;

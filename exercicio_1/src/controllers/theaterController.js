@@ -8,6 +8,7 @@ class TheaterController {
     this.newBooking = this.newBooking.bind(this);
     this.showAvailable = this.showAvailable.bind(this);
     this.showMap = this.showMap.bind(this);
+    this.confirmBookedSeat = this.confirmBookedSeat.bind(this);
   }
 
   newBooking(req, res) {
@@ -22,6 +23,11 @@ class TheaterController {
   showMap(req, res) {
     const map = this._theater.showSeatMap();
     res.status(200).send(map);
+  }
+  confirmBookedSeat(req, res) {
+    const { seat } = req.body;
+    this._theater.confirmBooking(seat);
+    res.status(200).send('Reserva confirmada com sucesso')
   }
 }
 
