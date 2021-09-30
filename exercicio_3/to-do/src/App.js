@@ -64,6 +64,10 @@ function App() {
     });
   }
 
+  function cleanTasks() {
+    setTasks([]);
+  }
+
   function saveInLocalStorage(tasks) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
@@ -83,7 +87,7 @@ function App() {
             setInput(e.target.value);
           }} placeholder="Nova tarefa.." />
           <button onClick={addNewTask}>Adicionar</button>
-          <button>Limpar tarefas</button>
+          <button onClick={cleanTasks}>Limpar tarefas</button>
           <div className="input-erro">{error && <span>ops, digite a tarefa</span>}</div>
         </div>
 
