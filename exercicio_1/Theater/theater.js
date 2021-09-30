@@ -37,7 +37,7 @@ class Theater {
     const { row, seatNumber } = this._getSeat(seat);
     const place = this._seats[row][seatNumber];
     if (place.getStatus() === STATUS.AVAILABLE) {
-      place.book();            
+      place.book();
     } else {
       throw new BookedSeatError('A poltrona escolhida não está disponível. Tente novamente.');
     }
@@ -46,24 +46,33 @@ class Theater {
     const { row, seatNumber } = this._getSeat(seat);
     const place = this._seats[row][seatNumber];
     if (place.getStatus() !== STATUS.BOOKED) {
-      throw new SeatNotFoundError('\nReserva não encontrada. Tente novamente.\n');      
+      throw new SeatNotFoundError('\nReserva não encontrada. Tente novamente.\n');
     } else {
-      place.confirm();      
-    }    
+      place.confirm();
+    }
   }
   removeBooking(seat) {
     const { row, seatNumber } = this._getSeat(seat);
     const place = this._seats[row][seatNumber];
     if (place.getStatus() !== STATUS.AVAILABLE) {
-      place.remove();      
+      place.remove();
     } else {
       throw new SeatNotFoundError('\nReserva não encontrada. Tente novamente.\n');
     }
   }
   showSeatMap() {
     const seats = this._seats.map(row => row.map(seat => seat.getStatus()));
-    console.table(seats);
+    const seatsObj = {};
+    seats.forEach((seat, index) => {
+      const key = ROWS[index]
+      seatsObj[key] = seat
+    })
+    return seatsObj;
   }
+
+
+
+
   showTotal(status) {
     let total = 0;
     this._seats.forEach(row => row.forEach(seat => {
@@ -78,6 +87,6 @@ class Theater {
     const amount = confirmedSeats * TICKET.AMOUNT;
     return amount;
   }
-} 
+}
 
 module.exports = Theater;

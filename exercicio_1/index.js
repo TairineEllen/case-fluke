@@ -22,7 +22,7 @@ function openMainMenu() {
         const total = theater.calculateCollectedAmount();
         console.log(`\nO teatro arrecadou R$${total},00.\n`);
         openMainMenu();
-       break;        
+        break;
       case '4':
         console.log('\nObrigada e volte sempre!');
         rl.close();
@@ -73,7 +73,7 @@ function openManageMenu() {
     - ${availables} poltronas disponíveis
     - ${booked} lugares reservados
     - ${confirmed} lugares confirmados\n`);
-  theater.showSeatMap();
+  console.table(theater.showSeatMap());
 
   rl.question('\n 1. Confirmar reserva\n 2. Retirar reserva\n 3. Voltar\n\n Escolha uma opção: ', opt => {
     switch (opt) {
@@ -107,10 +107,10 @@ function openManageMenu() {
             openManageMenu();
           }
         })
-        break;       
+        break;
       case '3':
         openMainMenu();
-        break;        
+        break;
     }
   })
 }
