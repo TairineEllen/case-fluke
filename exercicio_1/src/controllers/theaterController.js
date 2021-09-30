@@ -9,6 +9,8 @@ class TheaterController {
     this.showAvailable = this.showAvailable.bind(this);
     this.showMap = this.showMap.bind(this);
     this.confirmBookedSeat = this.confirmBookedSeat.bind(this);
+    this.removeBookedSeat = this.removeBookedSeat.bind(this);
+    this.getTotalSeats = this.getTotalSeats.bind(this);
   }
 
   newBooking(req, res) {
@@ -28,6 +30,21 @@ class TheaterController {
     const { seat } = req.body;
     this._theater.confirmBooking(seat);
     res.status(200).send('Reserva confirmada com sucesso')
+  }
+  removeBookedSeat(req, res) {
+    const { seat } = req.body;
+    this._theater.removeBooking(seat)
+    res.status(200).send('Reserva removida com sucesso')
+  }
+  getTotalSeats(req, res) {
+    const available = this._theater.showTotal('L');
+    const booked = this._theater.showTotal('R');
+    const confirmed = this._theater.showTotal('C');
+    res.status(200).send({
+      livres: available,
+      reservados: booked,
+      confirmados: confirmed
+    })
   }
 }
 
