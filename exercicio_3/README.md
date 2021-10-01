@@ -20,12 +20,12 @@ Caso o usuário feche a página e abra novamente os dados inseridos anteriorment
 
 ------------
 
-#### E como funciona?
+## Como funciona
 É só digitar no seu terminal:
 
 `npm start`
 
-Agora só começar a adicionar aquelas tarefinhas que tão pendentes desde semana passada!
-Quando começar a fazer uma, só clicar no símbolo de play que ela vai pra aba "Em progresso". Já terminou? Então só clicar no check que ela vai pra aba de "Finalizado".
-Aquela tarefa não faz mais sentido? Só clicar na lixeira pra excluir ou se quiser jogar tudo pro alto, clicar no botão "Limpar tarefas" pra limpar todas as abas e recomeçar o processo.
+A aplicação está pronta para receber as tarefas que serão adicionadas diretamente na aba "A fazer".
+Quando iniciar a tarefa, só clicar no símbolo de play que ela vai pra aba "Em progresso". Quando ela estiver na aba "Em progresso", um símbolo de check vai aparecer. Ao clicar no símbolo, a tarefa vai finalmente para a aba "Finalizado".
+Para excluir tarefas, você pode clicar no símbolo de lixeira que existe em cada uma ou limpar todas as tarefas de uma vez clicando no botão "Limpar tarefas".
 
