@@ -18,26 +18,44 @@ Utilize as siglas: L para Livre; C para Confirmado; e R para reservado)
 
 ------------
 
-#### Beleza, e como funciona?
-Para ter acesso ao menu principal, é só digitar no seu terminal:
+## Como funciona
 
-`node index.js`
+A aplicação pode ser acessada via terminal ou via Postman/Insomnia. 
 
-Pronto, agora é só ler o menu e digitar a opção correspondente ao que você quer fazer. No menu principal, você pode:
+### Via terminal
+Para iniciar:
+
+```bash
+node index.js
+```
+
+Um menu principal irá surgir com as seguintes opções:
 1. Ver lugares diponíveis e reservar uma poltrona
 2. Gerenciar as reservas que já existem
 3. Visualizar o valor arrecadado de acordo com o número de reservas confirmadas
 4. Sair da aplicação
 
-#### Entendi, quero ver os lugares disponíveis e reservar uma poltrona
-Ao escolher a opção 1, você verá todas as poltronas livres antes de escolher a sua. Há também uma opção para voltar ao menu principal.
+Dentro dos submenus você encontra as opções para reservar uma poltrona, confirmar ou cancelar uma reserva, ver os lugares disponíveis e o mapa de lugares com seus respectivos status.
+Você pode também ver o número total de lugares disponíveis, reservados e confirmados, assim como o valor total de dinheiro arrecadado pelo teatro.
 
-#### Reservei. Já tá tudo certo?
-Nops, agora precisamos confirmar a reserva.. vai que você desiste de assistir a peça né?
-Pra confirmar ou retirar sua reserva, é só escolher a opção 2 no menu principal. Lá você verá o número total de poltronas livres, de poltronas reservadas e poltronas confirmadas.
-Agora é só escolher uma das opções abaixo e digitar a sua poltrona:
-1. Confirmar reserva
-2. Retirar reserva
+### Via Postman/Insomnia
 
-#### Show. Será que estamos ricos?
-Pra descobrir, só clicar na opção 3 do menu principal. Lá encontramos o valor total de dinheiro arrecadado, cada reserva confirmada vale 20 reais.
+```bash
+# Instalar as dependências
+npm install
+# Executar o servidor
+npm run dev
+```
+
+#### Rotas
+
+| Rotas            |                                                                                     |
+| ---------------- | ----------------------------------------------------------------------------------- | 
+| GET/livres       | Listar todos os lugares livres                                                      |
+| GET/mapa         | Visualizar o mapa de lugares                                                        |
+| GET/total        | Visualizar total de lugares disponíveis, lugares reservados e lugares confirmados   |
+| GET/arrecadacao  | Visualizar total de dinheiro arrecadado pelo teatro                                 |
+| POST/reservar    | Realizar uma reserva                                                                |
+| PUT/confimar     | Confirmar uma reserva                                                               |
+| PUT/remover      | Remover uma reserva                                                                 |
+
